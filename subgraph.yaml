@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: HordToken
+    network: mainnet
+    source:
+      address: "0x43a96962254855f16b925556f9e97be436a43448"
+      abi: HordToken
+      startBlock: 12244662
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - Transfer
+      abis:
+        - name: HordToken
+          file: ./abis/HordToken.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/hord-token.ts
