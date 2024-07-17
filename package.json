@@ -4,10 +4,9 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ dragonswap-token-tracker",
-    "create-local": "graph create --node http://localhost:8020/ dragonswap-token-tracker",
-    "remove-local": "graph remove --node http://localhost:8020/ dragonswap-token-tracker",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 dragonswap-token-tracker",
+
+    "goldsky-prod" : "goldsky subgraph deploy dragonswap-user-token-tracker/1.0.0 --path .",
+
     "test": "graph test"
   },
   "dependencies": {

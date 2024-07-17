@@ -1,19 +1,18 @@
-type Approval @entity(immutable: true) {
+type TokenBalance @entity {
   id: Bytes!
-  owner: Bytes! # address
-  spender: Bytes! # address
-  value: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  user: String! # address
+  tokenAddress: String! # address
+  balance: BigDecimal!
+  lastUpdatedAtBlockNumber: BigInt!
+  lastUpdatedAtTimestamp: BigInt!
 }
 
-type Transfer @entity(immutable: true) {
-  id: Bytes!
-  from: Bytes! # address
-  to: Bytes! # address
-  value: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Token @entity(immutable: true) {
+  # token address
+  id: ID!
+
+  # mirrored from the smart contract
+  symbol: String!
+  name: String!
+  decimals: BigInt!
 }
